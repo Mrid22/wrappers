@@ -1,8 +1,7 @@
 {
   pkgs,
   self,
-}:
-let
+}: let
   zshWrapped =
     (self.wrapperModules.zsh.apply {
       inherit pkgs;
@@ -30,4 +29,4 @@ let
       '';
     }).wrapper;
 in
-pkgs.runCommand "zsh-test" { } ''"${zshWrapped}/bin/zsh" $ZDOTDIR/.zshrc''
+  pkgs.runCommand "zsh-test" {} "${zshWrapped}/bin/zsh"

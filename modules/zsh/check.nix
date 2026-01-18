@@ -29,4 +29,7 @@
       '';
     }).wrapper;
 in
-  pkgs.runCommand "zsh-test" {} "${zshWrapped}/bin/zsh"
+  pkgs.runCommand "zsh-test" {} ''
+    "${zshWrapped}/bin/zsh"
+    touch $out
+  ''

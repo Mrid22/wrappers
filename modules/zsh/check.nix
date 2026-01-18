@@ -1,7 +1,8 @@
 {
   pkgs,
   self,
-}: let
+}:
+let
   zshWrapped =
     (self.wrapperModules.zsh.apply {
       inherit pkgs;
@@ -29,7 +30,7 @@
       '';
     }).wrapper;
 in
-  pkgs.runCommand "zsh-test" {} ''
-    "${zshWrapped}/bin/zsh"
-    touch $out
-  ''
+pkgs.runCommand "zsh-test" { } ''
+  "${zshWrapped}/bin/zsh"
+  touch $out
+''
